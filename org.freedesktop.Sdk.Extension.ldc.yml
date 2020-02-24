@@ -8,12 +8,15 @@ separate-locales: false
 appstream-compose: false
 build-options:
   prefix: /usr/lib/sdk/ldc
+  prepend-path: /usr/lib/sdk/ldc/bin
+  prepend-ld-library-path: /usr/lib/sdk/ldc/lib
 modules:
-  - name: ldc
+
+  - name: ldc-bootstrap
     buildsystem: simple
     build-commands:
-      - mkdir -p /usr/lib/sdk/ldc
-      - mv bin etc import lib lib32 /usr/lib/sdk/ldc
+      - mkdir -p ${FLATPAK_DEST}/bootstrap
+      - cp -a bin etc import lib lib32 ${FLATPAK_DEST}/bootstrap/
     sources:
       - type: archive
         only-arches:
@@ -25,6 +28,18 @@ modules:
           - aarch64
         url: https://github.com/ldc-developers/ldc/releases/download/v1.20.0/ldc2-1.20.0-linux-aarch64.tar.xz
         sha256: 3b45670b11507fc613661f2fa9bb90611d6a75d8f2b422d2d76788f456a51295
+    cleanup:
+      - "*"
+
+  - name: ldc
+    build-options:
+      append-path: /usr/lib/sdk/ldc/bootstrap/bin
+    buildsystem: cmake-ninja
+    builddir: true
+    sources:
+      - type: git
+        url: "https://github.com/ldc-developers/ldc.git"
+        tag: v1.20.0
 
   - name: scripts
     buildsystem: simple
