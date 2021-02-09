@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>com.sidequestvr.sidequest.desktop</id>
+  <name>SideQuest</name>
+  <project_license>MIT</project_license>
+  <developer_name>Sidquest</developer_name>
+  <summary>SideQuest is a place to get more apps for your Oculus Quest</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <url type="homepage">https://sidequestvr.com/</url>
+  <description>
+    <p>
+    SideQuest is a place to get more apps for your Oculus Quest, it is a completely safe way to enjoy some cutting edge content in VR and expand the capability of your standalone VR headset. We make it easier for users to access content that is not yet available on the Oculus Store and as a proving ground for developers to validate their content and kick start their communities. SideQuest is completely free for users and developers and always will be. We are committed to supporting the VR industry.
+    </p>
+  </description>
+ </component>

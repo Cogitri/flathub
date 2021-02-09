@@ -1,0 +1,53 @@
+{
+    "app-id" : "com.sidequestvr.sidequest",
+    "base": "org.electronjs.Electron2.BaseApp",
+    "base-version": "20.08",
+    "runtime" : "org.freedesktop.Platform",
+    "runtime-version" : "20.08",
+    "sdk" : "org.freedesktop.Sdk",
+    "command" : "sidequest",
+    "finish-args" : [
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=pulseaudio",
+        "--share=network",
+        "--device=all"
+    ],
+    "modules" : [
+        {
+            "name" : "sidequest",
+            "buildsystem" : "simple",
+            "build-commands": [
+                "mkdir -p /app/sidequest /app/share/applications /app/share/appdata /app/share/icons/hicolor/256x256/apps",
+                "mv sidequest.sh /app/bin/sidequest",
+                "mv com.sidequestvr.sidequest.desktop /app/share/applications",
+                "mv com.sidequestvr.sidequest.appdata.xml /app/share/appdata",
+                "mv com.sidequestvr.sidequest.png /app/share/icons/hicolor/256x256/apps",
+                "mv * /app/sidequest"
+            ],
+            "sources" : [
+                {
+                    "type" : "archive",
+                    "url" : "https://github.com/SideQuestVR/SideQuest/releases/download/v0.10.18/SideQuest-0.10.18.tar.xz",
+                    "sha256": "92b358228bc49f53ad36d2698941217c7e41fb2bbea070d0ea88f4c8f01496b5"
+                },
+                {
+                    "type": "file",
+                    "path": "sidequest.sh"
+                },
+                {
+                    "type": "file",
+                    "path": "com.sidequestvr.sidequest.appdata.xml"
+                },
+                {
+                    "type": "file",
+                    "path": "com.sidequestvr.sidequest.desktop"
+                },
+                {
+                    "type": "file",
+                    "path": "com.sidequestvr.sidequest.png"
+                }
+            ]
+        }
+    ]
+}

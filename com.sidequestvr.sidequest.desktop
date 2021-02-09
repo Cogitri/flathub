@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=SideQuest
+Icon=com.sidequestvr.sidequest
+Exec=/app/bin/sidequest %U
+StartupWMClass=sidequest
+Categories=Game;Utility;
